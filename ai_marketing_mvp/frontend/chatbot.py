@@ -12,7 +12,7 @@ if "ip" not in st.session_state:
 
 @st.cache_resource
 def _avatar_data_uri():
-    with open("assets/BroBot.png", "rb") as f:
+    with open("ai_marketing_mvp/frontend/assets/BroBot.png", "rb") as f:
         b64 = base64.b64encode(f.read()).decode()
     return f"data:image/jpeg;base64,{b64}"
 
