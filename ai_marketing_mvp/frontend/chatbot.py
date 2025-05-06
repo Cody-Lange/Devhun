@@ -22,7 +22,7 @@ if "ip" not in st.session_state:
 
 # ------------- render history -------------------------
 for role, text in st.session_state.messages:
-    with st.chat_message(role, avatar=AVATAR if role == "BroBot" else None):
+    with st.chat_message(role, avatar=None if role == "BroBot" else None):
         st.write(text)
 
 # ------------- new input ------------------------------
