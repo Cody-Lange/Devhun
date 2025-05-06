@@ -1,1 +1,1 @@
-API_URL = "http://localhost:8000/chat"        # or full Cloudflare URL after deploy
+API_URL = "https://terminal-of-beer.streamlit.app/"        # or full Cloudflare URL after deploy
