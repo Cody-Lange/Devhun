@@ -11,13 +11,11 @@ if "messages" not in st.session_state:
 if "ip" not in st.session_state:
     st.session_state.ip = requests.get("https://api.ipify.org").text
 
-ASSETS_DIR = Path(__file__).parent / "assets"      # → …/frontend/assets
-AVATAR_PATH = ASSETS_DIR / "BroBot.png"
-
 @st.cache_resource
-def _avatar_data_uri() -> str:
-    data = AVATAR_PATH.read_bytes()
-    return "data:image/png;base64," + base64.b64encode(data).decode()
+def _avatar_data_uri():
+    with open("https://github.com/Cody-Lange/Devhun/blob/main/ai_marketing_mvp/frontend/assets/Brobot.png", "rb") as f:
+        b64 = base64.b64encode(f.read()).decode()
+    return f"data:image/png;base64,{b64}"
 
 AVATAR = _avatar_data_uri()
 
