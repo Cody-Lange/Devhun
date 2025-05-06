@@ -1,0 +1,100 @@
+###############################################################################
+#  GLOBAL – operating‑system clutter                                          #
+###############################################################################
+# macOS
+.DS_Store
+.AppleDouble
+Icon?
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+# Linux
+*~                                   # gedit / nano backups
+.*.swp                                # vim swap files
+*.#*                                  # emacs
+
+###############################################################################
+#  PYTHON / FASTAPI BACKEND                                                  #
+###############################################################################
+# virtual‑envs (local dev)
+venv*/
+*/venv*/
+backend_venv*/
+# compiled / cached
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+# PEP‑517 build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+# test & coverage artefacts
+htmlcov/
+.tox/
+.coverage
+.cache/
+.pytest_cache/
+# runtime output
+*.log
+*.sqlite3
+# secrets (override if you commit via e.g. Doppler)
+backend/config.py
+.env
+.env.*
+
+###############################################################################
+#  FAISS & embedding indexes (binary)                                        #
+###############################################################################
+*.faiss
+*.index
+*.npy
+*.npz
+
+###############################################################################
+#  STREAMLIT FRONTEND                                                        #
+###############################################################################
+# Streamlit caches
+frontend/.streamlit/secrets.toml
+.streamlit/
+# Streamlit static build artefacts
+*.js.map
+# image assets you don’t want in git LFS
+assets/*.jpg
+assets/*.png
+
+###############################################################################
+#  DOCKER                                                                    #
+###############################################################################
+# Docker build cache / layers (exported)
+**/tmp_docker_layers_*/
+
+###############################################################################
+#  IDEs & EDITORS                                                            #
+###############################################################################
+# VS Code
+.vscode/
+.history/
+# PyCharm / IntelliJ
+.idea/
+# Rider / other JetBrains
+*.iml
+# Visual Studio
+.vs/
+
+###############################################################################
+#  OPTIONAL – you can delete sections you never use                          #
+###############################################################################
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+# Node / NPM (if you later add React)
+node_modules/
+npm-debug.log*
+yarn.lock
+# Terraform
+*.tfstate*
+.terraform/
