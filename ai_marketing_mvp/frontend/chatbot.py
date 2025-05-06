@@ -44,7 +44,7 @@ if prompt:
 
     # show BroBot answer
     st.session_state.messages.append(("BroBot", reply))
-    with st.chat_message("BroBot", avatar=AVATAR):
+    with st.chat_message("BroBot", avatar=None):
         st.write(reply)
 
     st.rerun()   # refresh chat log
