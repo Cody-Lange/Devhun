@@ -11,14 +11,14 @@ if "messages" not in st.session_state:
 if "ip" not in st.session_state:
     st.session_state.ip = requests.get("https://api.ipify.org").text
 
-AVATAR_PATH = Path(__file__).parent / "assets" / "BroBot.png"
+# AVATAR_PATH = Path(__file__).parent / "assets" / "BroBot.png"
 
-@st.cache_resource
-def _avatar_data_uri() -> str:
-    data = AVATAR_PATH.read_bytes()
-    return "data:image/png;base64," + base64.b64encode(data).decode()
+# @st.cache_resource
+# def _avatar_data_uri() -> str:
+#     data = AVATAR_PATH.read_bytes()
+#     return "data:image/png;base64," + base64.b64encode(data).decode()
 
-AVATAR = _avatar_data_uri()
+# AVATAR = _avatar_data_uri()
 
 # ------------- render history -------------------------
 for role, text in st.session_state.messages:
