@@ -18,7 +18,7 @@ def _avatar_data_uri() -> str:
     data = AVATAR_PATH.read_bytes()
     return "data:image/png;base64," + base64.b64encode(data).decode()
 
-AVATAR = _avatar_data_uri()
+AVATAR = st.image(AVATAR_PATH)
 
 # ------------- render history -------------------------
 for role, text in st.session_state.messages:
