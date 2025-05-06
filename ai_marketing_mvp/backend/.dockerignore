@@ -1,0 +1,26 @@
+# .dockerignore
+# Ignore anything that shouldn’t go inside the image (large, local‑only, secrets)
+
+# Python caches & venvs
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+.env
+venv/
+backend_venv/
+.frontend-venv/
+
+# Git
+.git
+.gitignore
+
+# node / Yarn / pnpm
+node_modules/
+dist/
+build/
+
+# IDE / editor
+.vscode/
+.idea/
+.DS_Store
