@@ -1,5 +1,6 @@
 import streamlit as st, requests, base64
 from config import API_URL
+from pathlib import Path
 
 st.set_page_config(page_title="BroBot", page_icon="🍻")
 st.title("🍻 BroBot – Marketing Assistant")
@@ -10,11 +11,13 @@ if "messages" not in st.session_state:
 if "ip" not in st.session_state:
     st.session_state.ip = requests.get("https://api.ipify.org").text
 
+ASSETS_DIR = Path(__file__).parent / "assets"      # → …/frontend/assets
+AVATAR_PATH = ASSETS_DIR / "BroBot.png"
+
 @st.cache_resource
-def _avatar_data_uri():
-    with open("ai_marketing_mvp/frontend/assets/BroBot.png", "rb") as f:
-        b64 = base64.b64encode(f.read()).decode()
-    return f"data:image/jpeg;base64,{b64}"
+def _avatar_data_uri() -> str:
+    data = AVATAR_PATH.read_bytes()
+    return "data:image/png;base64," + base64.b64encode(data).decode()
 
 AVATAR = _avatar_data_uri()
 
