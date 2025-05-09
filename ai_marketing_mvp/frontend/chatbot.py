@@ -10,13 +10,15 @@ if "messages" not in st.session_state:
 if "ip" not in st.session_state:
     st.session_state.ip = requests.get("https://api.ipify.org").text
 
-@st.cache_resource
-def _avatar_data_uri():
-    with open("assets/BroBot.png", "rb") as f:
-        b64 = base64.b64encode(f.read()).decode()
-    return f"data:image/jpeg;base64,{b64}"
+# @st.cache_resource
+# def _avatar_data_uri():
+#     with open("assets/BroBot.png", "rb") as f:
+#         b64 = base64.b64encode(f.read()).decode()
+#     return f"data:image/jpeg;base64,{b64}"
 
-AVATAR = _avatar_data_uri()
+# AVATAR = _avatar_data_uri()
+AVATAR = "https://github.com/Cody-Lange/Devhun/blob/main/ai_marketing_mvp/frontend/assets/Brobot.png?raw=true"
+
 
 # ------------- render history -------------------------
 for role, text in st.session_state.messages:
@@ -39,6 +41,8 @@ if prompt:
         reply = r.json().get("reply", "(empty)")
     except Exception as e:
         reply = f"Sorry, backend error: {e}"
+        if "r" in locals():
+            reply += f"\n\nRaw response:\n{r.text[:500]}"
 
     # show BroBot answer
     st.session_state.messages.append(("BroBot", reply))
